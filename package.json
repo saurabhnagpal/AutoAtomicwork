@@ -3,7 +3,12 @@
     "test": "testcafe chrome:headless tests/**/* -r xunit:/tmp/test-results/testcafe/results.xml"
   },
   "devDependencies": {
-    "testcafe": "*",
+    "testcafe": "^3.6.2",
     "testcafe-reporter-xunit": "*"
+  },
+  "dependencies": {
+    "winston": "^3.14.1",
+    "dotenv": "16.4.5",
+    "axios": "^1.7.3"
   }
 }

@@ -1,0 +1,14 @@
+{
+  "User": {
+    "name": "John Doe",
+    "email": "johndoe@example.com"
+  },
+  "updatedUser": {
+    "name": "Jane Smith",
+    "email": "janesmith@example.com"
+  },
+  "userForDeletion": {
+    "name": "Mark Doe",
+    "email": "markdoe@example.com"
+  }
+}
