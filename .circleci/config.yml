@@ -1,20 +1,24 @@
 version: 2.1
 orbs:
-  node: circleci/node@4.1.0
-  browser-tools: circleci/browser-tools@1.1.0
+  node: circleci/node@5.2.0
+  browser-tools: circleci/browser-tools@1.4.8
+
 jobs:
-  test:
+  chrome:
     docker:
-      - image: cimg/node:lts-browsers
+      - image: cimg/node:20.4.0-browsers
     steps:
       - checkout
-      - browser-tools/install-browser-tools
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - node/install-packages
       - run:
-          command: npm run test
-      - store_test_results:
-          path: /tmp/test-results
+          name: Run TestCafe tests on headless Chrome
+          command: npm run test:chrome:headless
+            google-chrome --version
+            chromedriver --version
+
 workflows:
-  e2e-test:
+  end-to-end-tests:
     jobs:
-      - test
+      - chrome
