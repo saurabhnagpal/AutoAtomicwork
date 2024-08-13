@@ -1,10 +1,14 @@
+"use strict";
+
 const axios = require("axios");
 const config = require("../config/config");
 const logger = require("../utils/logging");
 
+// APIClient class for handling HTTP requests to the API.
 class ApiClient {
   constructor() {
     this.client = axios.create({
+      // Initializes the ApiClient with base URL and headers.
       baseURL: config.baseUrl,
       headers: {
         Authorization: `${config.apiKey}`,
@@ -13,9 +17,10 @@ class ApiClient {
     });
   }
 
+  // Retrieves all users from the API.
   async getUsers() {
     try {
-      const response = await this.client.get("/users");
+      const response = await this.client.get("/users"); // Get request
       logger.info("Get Users Response:", response.data);
       return response;
     } catch (error) {
@@ -24,6 +29,7 @@ class ApiClient {
     }
   }
 
+  // Creates a new user by sending a POST request to the API.
   async createUser(userData) {
     try {
       const response = await this.client.post("/users", userData);
@@ -35,6 +41,7 @@ class ApiClient {
     }
   }
 
+  // Updates an existing user by sending a PUT request to the API.
   async updateUser(userId, userData) {
     try {
       const response = await this.client.put(`/users/${userId}`, userData);
@@ -46,6 +53,7 @@ class ApiClient {
     }
   }
 
+  // Deletes an existing user by sending a DELETE request to the API.
   async deleteUser(userId) {
     try {
       const response = await this.client.delete(`/users/${userId}`);
