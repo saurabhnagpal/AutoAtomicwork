@@ -1,10 +1,13 @@
 version: 2.1
-
+orbs:
+  browser-tools: circleci/browser-tools@1.4.8
 jobs:
   test:
     docker:
-      - image: circleci/node:14
+      - image: circleci/node:20.4.0-browsers
     steps:
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - checkout
       - run:
           name: Install dependencies
