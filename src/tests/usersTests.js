@@ -3,13 +3,9 @@ const ApiClient = require("../utils/apiClient");
 const logger = require("../utils/logging");
 const fs = require("fs");
 const path = require("path");
+const config = require("../config/config");
 
-// Load test data
-const testData = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "../data/userData.json"), "utf8")
-);
-
-fixture`User API Tests`.page(process.env.BASE_URL);
+fixture`User API Tests`.page(`${config.baseUrl}`);
 
 const apiClient = new ApiClient();
 
