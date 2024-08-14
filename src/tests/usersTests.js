@@ -1,4 +1,4 @@
-import { Selector } from "testcafe";
+"use strict";
 const ApiClient = require("../utils/apiClient");
 const logger = require("../utils/logging");
 const fs = require("fs");
