@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "API Automation Framework using TestCafe",
   "scripts": {
-    "test": "testcafe",
-    "test:chrome": "testcafe chrome src/tests/*.js"
+    "test": "testcafe chrome:headless src/tests/** -r xunit:/tmp/test-results/testcafe/results.xml"
   },
   "dependencies": {
-    "testcafe": "^3.6.2",
+    "testcafe": "*",
     "winston": "3.14.1",
     "dotenv": "16.4.5"
   },
