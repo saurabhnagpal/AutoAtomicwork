@@ -1,14 +1,17 @@
 {
+  "name": "api-framework",
+  "version": "1.0.0",
+  "description": "API Automation Framework using TestCafe",
   "scripts": {
-    "test": "testcafe chrome:headless  /AutoAtomicwork/src/tests/* "
-  },
-  "devDependencies": {
-    "testcafe": "^3.6.2",
-    "testcafe-reporter-xunit": "*"
+    "test": "testcafe",
+    "test:chrome": "testcafe chrome src/tests/*.js"
   },
   "dependencies": {
-    "winston": "^3.14.1",
-    "dotenv": "16.4.5",
-    "axios": "^1.7.3"
+    "testcafe": "^3.6.2",
+    "winston": "3.14.1",
+    "dotenv": "16.4.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0"
   }
 }
