@@ -5,7 +5,7 @@ orbs:
 jobs:
   test:
     docker:
-      - image: circleci/node:20.4.0-browsers
+      - image: cimg/node:lts-browsers
     steps:
       - checkout
       - browser-tools/install-chrome
