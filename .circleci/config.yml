@@ -14,11 +14,9 @@ jobs:
       - node/install-packages
       - run:
           name: Run TestCafe tests on headless Chrome
-          command: npm run test:chrome:headless
-            google-chrome --version
-            chromedriver --version
+          command: npm testcafe "chrome:headless" /AutoAtomicwork/src/tests/userTests.js
 
 workflows:
   end-to-end-tests:
     jobs:
-      - chrome
+      - User API Tests
