@@ -1,37 +1,20 @@
 version: 2.1
 
-executors:
-  node-executor:
-    docker:
-      - image: cimg/node:20.4.0-browsers # Node.js with browsers for TestCafe
-    working_directory: ~/AutoAtomicwork
-
 jobs:
-  install-dependencies:
-    executor: node-executor
+  test:
+    docker:
+      - image: circleci/node:14
     steps:
       - checkout
       - run:
-          name: Install npm dependencies
+          name: Install dependencies
           command: npm install
-
-  run-tests:
-    executor: node-executor
-    steps:
-      - checkout
       - run:
-          name: Run TestCafe tests
-          command: npm test
-      - store_artifacts:
-          path: screenshots # Store screenshots taken during test failures
-      - store_test_results:
-          path: test-results # Store test results for reporting
+          name: Run tests
+          command: npm testcafe chrome:headless tests/*.js
 
 workflows:
   version: 2
   test:
     jobs:
-      - install-dependencies
-      - run-tests:
-          requires:
-            - install-dependencies
+      - test
