@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "testcafe chrome:headless tests/* -r xunit:/tmp/test-results/testcafe/results.xml"
+    "test": "testcafe chrome:headless  /AutoAtomicwork/src/tests/* "
   },
   "devDependencies": {
     "testcafe": "^3.6.2",
