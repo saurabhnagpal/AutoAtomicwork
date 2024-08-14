@@ -4,7 +4,7 @@ orbs:
   browser-tools: circleci/browser-tools@1.4.8
 
 jobs:
-  chrome:
+  User API:
     docker:
       - image: cimg/node:20.4.0-browsers
     steps:
@@ -19,4 +19,4 @@ jobs:
 workflows:
   end-to-end-tests:
     jobs:
-      - User API Tests
+      - User API
